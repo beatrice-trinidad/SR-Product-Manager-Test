@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Video.js</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+    <!-- Makes the header -->
+    <script src="//samples.streamroot.io/web/assets/header.js"></script>
+
+    <!-- Video.js build -->
+    <link href="//vjs.zencdn.net/7.4.1/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/7.4.1/video.min.js"></script>
+
+    <!-- Streamroot source handler plugin -->
+    <script src="//cdn.streamroot.io/videojs-hlsjs-plugin/1/stable/videojs-hlsjs-plugin.js"></script>
+
+    <!-- Streamroot DNA plugin -->
+    <script
+        src="//cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js?srKey=da32565b-dd31-4ae8-9be7-951d6ca79621">
+    </script>
+    <!-- Graphs -->
+    <script src="//tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Cloudfront HLS stream</h1>
+    </header>
+    <video id="demoplayer" class="video-js" controls></video>
+    <script>
+        var options = {
+            html5: {
+                hlsjsConfig: {},
+            },
+            dnaConfig: {},
+        };
+        var player = videojs("demoplayer", options);
+        player.src("http://wowza-test-cloudfront.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8");
+    </script>
+    <div id="streamroot-graphs"></div>
+</body>
+​
+
+</html>
